@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>איתך - יוסף בך</title>
+<meta name="description" content="איתך, סינגל חדש של יוסף בך. להאזנה ב-Spotify, Apple Music ו-YouTube.">
+<meta property="og:type" content="music.song">
+<meta property="og:title" content="איתך - יוסף בך">
+<meta property="og:description" content="סינגל חדש. להאזנה עכשיו.">
+<meta property="og:image" content="https://benjaminsbrother.github.io/etach/cover.jpg">
+<meta property="og:url" content="https://benjaminsbrother.github.io/etach/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="cover.jpg">
+<style>
+  :root { --sky:#2f73a8; --cream:#fffaf1; --ink:#182c3b; --paper:#f4eedf; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; background:var(--sky); color:var(--ink);
+    font-family:-apple-system, "Helvetica Neue", Arial, sans-serif; }
+  .wrap { max-width:480px; margin:0 auto; padding:24px 16px 40px; }
+  .cover { width:100%; aspect-ratio:1/1; border-radius:16px; display:block;
+    box-shadow:0 18px 40px rgba(0,0,0,.35); background:#cbbfa7; object-fit:cover; }
+  h1 { font-size:46px; margin:20px 0 0; color:var(--cream); text-align:center; }
+  h2 { font-size:17px; font-weight:400; margin:4px 0 22px; color:var(--cream);
+    text-align:center; opacity:.9; }
+  .btn { display:flex; align-items:center; justify-content:space-between; width:100%;
+    padding:16px 18px; margin:10px 0; border-radius:14px; background:var(--cream);
+    color:var(--ink); font-size:19px; font-weight:700; text-decoration:none;
+    box-shadow:0 6px 14px rgba(0,0,0,.18); }
+  .btn span { font-size:14px; font-weight:600; padding:7px 14px; border-radius:999px;
+    background:var(--ink); color:var(--cream); }
+  .btn.soon { opacity:.5; pointer-events:none; }
+  .btn.soon span { background:transparent; color:var(--ink); }
+  .credits { margin-top:28px; background:var(--paper); border-radius:14px;
+    padding:16px 18px; font-size:15px; line-height:1.65; }
+  .credits h3 { margin:0 0 6px; font-size:16px; }
+  footer { text-align:center; color:var(--cream); font-size:13px; margin-top:24px; opacity:.85; }
+  footer a { color:var(--cream); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="cover" src="cover.jpg" alt="איתך - יוסף בך">
+  <h1>איתך</h1>
+  <h2>יוסף בך &middot; סינגל חדש</h2>
+
+  <a class="btn" id="b-spotify" data-svc="spotify" href="https://open.spotify.com/artist/1o4DE9mxoo2pWXfZ5jdwhB">Spotify <span>האזנה</span></a>
+  <a class="btn soon" id="b-apple_music" data-svc="apple_music" href="#">Apple Music <span>בקרוב</span></a>
+  <a class="btn soon" id="b-youtube" data-svc="youtube" href="#">YouTube <span>בקרוב</span></a>
+
+  <div class="credits">
+    <h3>קרדיטים</h3>
+    מילים, לחן, הפקה, שירה וגיטרה: יוסף בך<br>
+    מקלדות וסינתיסייזרים: נועם חבקין (נומוק)<br>
+    פסנתר: עדי קשת כהן, יוסף בך<br>
+    בס: צוק דבוסק<br>
+    תופים: נדב לוזיה<br>
+    מיקס ומאסטר: נועם לוינברג
+  </div>
+
+  <footer>
+    <a href="https://www.instagram.com/joseph.bach.official">@joseph.bach.official</a><br>
+    יח"צ ורדיו: <a href="mailto:benjaminsbrother@gmail.com">benjaminsbrother@gmail.com</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var source = params.get('s') || params.get('utm_source') || 'direct';
+
+  function loadPixels(cfg) {
+    if (cfg.meta_pixel_id) {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', cfg.meta_pixel_id);
+      fbq('track', 'PageView');
+    }
+    if (cfg.ga4_id) {
+      var g = document.createElement('script');
+      g.async = true;
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(cfg.ga4_id);
+      document.head.appendChild(g);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', cfg.ga4_id, { campaign_source: source });
+    }
+  }
+
+  function track(svc) {
+    try { if (window.fbq) fbq('trackCustom', 'StreamClick', { service: svc, source: source }); } catch (e) {}
+    try { if (window.gtag) gtag('event', 'stream_click', { service: svc, source: source, transport_type: 'beacon' }); } catch (e) {}
+  }
+
+  function applyLinks(cfg) {
+    ['spotify', 'apple_music', 'youtube'].forEach(function (svc) {
+      var a = document.getElementById('b-' + svc);
+      var url = cfg[svc];
+      if (url) {
+        a.href = url;
+        a.classList.remove('soon');
+        a.querySelector('span').textContent = svc === 'youtube' ? 'צפייה' : 'האזנה';
+      }
+    });
+  }
+
+  document.querySelectorAll('.btn').forEach(function (a) {
+    a.addEventListener('click', function () { track(a.dataset.svc); });
+  });
+
+  fetch('links.json', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (cfg) { applyLinks(cfg); loadPixels(cfg); })
+    .catch(function (err) { console.error('links.json failed', err); });
+})();
+</script>
+</body>
+</html>
