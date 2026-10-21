@@ -15,7 +15,7 @@
   <meta property="og:locale" content="he_IL">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../cover.jpg">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <a class="skip" href="#main">דילוג לתוכן</a>
@@ -31,14 +31,10 @@
         <h1 id="title">איתך<span class="title-period" aria-hidden="true">.</span></h1>
         <p class="artist">יוסף בך</p>
         <p class="byline">מילים, לחן והפקה: יוסף בך</p>
-        <div class="song-meta"><span>סינגל</span><span>עברית</span><span dir="ltr">3:13</span></div>
+        <div class="song-meta"><span>סינגל</span><span aria-hidden="true">/</span><span>עברית</span><span aria-hidden="true">/</span><span dir="ltr">3:13</span></div>
         <div class="player" aria-label="האזנה לשיר איתך">
           <div class="player-heading"><span>להאזנה מלאה</span><span class="format" dir="ltr">MP3 · 320 kbps</span></div>
-          <audio id="audio" controls preload="none" aria-label="איתך, יוסף בך, השיר המלא">
-            <source src="https://drive.usercontent.google.com/download?id=18ljpoStEMTGExy6gubho3wb-FDgbnbCs&amp;export=download" type="audio/mpeg">
-            הדפדפן אינו תומך בנגן. אפשר להאזין דרך הקישור שמתחתיו.
-          </audio>
-          <p id="audio-error" class="audio-error" role="status" hidden>הנגן לא נטען. אפשר להאזין בחלון נפרד או להוריד את השיר.</p>
+          <iframe class="audio-frame" src="https://drive.google.com/file/d/18ljpoStEMTGExy6gubho3wb-FDgbnbCs/preview" title="האזנה לשיר המלא: איתך, יוסף בך" allow="autoplay" loading="eager"></iframe>
           <a class="player-fallback" href="https://drive.google.com/file/d/18ljpoStEMTGExy6gubho3wb-FDgbnbCs/preview" target="_blank" rel="noopener noreferrer">האזנה בחלון נפרד <span aria-hidden="true">↗</span></a>
         </div>
         <div class="primary-actions">
@@ -114,6 +110,6 @@
     </div>
     <div class="wrap footer-bottom"><span>יוסף בך / איתך</span><span lang="en" dir="ltr">JOSEPH BACH · PRESS & RADIO</span></div>
   </footer>
-  <script src="press.js" defer></script>
+  <script src="press.js?v=2" defer></script>
 </body>
 </html>
